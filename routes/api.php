@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticlesController;
+use App\Models\Articles;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,15 +21,15 @@ use App\Http\Controllers\ArticlesController;
 // });
 
 
-Route::prefix("/articles")->group(function(){
-    Route::get("/",[ArticlesController::class, "index"]);
-Route::post("/",[ArticlesController::class, "store"]);
-Route::put("/{id}",[ArticlesController::class, "update"]);
-Route::delete("/{id}",[ArticlesController::class, "destroy"]);
-Route::get("/{id}",[ArticlesController::class, "show"]);
-});
+// Route::prefix("/articles")->group(function(){
+//     Route::get("/",[ArticlesController::class, "index"]);
+// Route::post("/",[ArticlesController::class, "store"]);
+// Route::put("/{id}",[ArticlesController::class, "update"]);
+// Route::delete("/{id}",[ArticlesController::class, "destroy"]);
+// Route::get("/{id}",[ArticlesController::class, "show"]);
+// });
 
-
+Route::resource("/articles",ArticlesController::class);
 // Route::get("/articles",[ArticlesController::class, "index"]);
 // Route::post("/articles",[ArticlesController::class, "store"]);
 // Route::put("/articles/{id}",[ArticlesController::class, "update"]);
